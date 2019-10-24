@@ -1,0 +1,75 @@
+$item-border: 1px solid darkgrey;
+.menu-item {
+    cursor: pointer;
+    min-width: 30%;
+    height: 18em;
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: $item-border;
+    margin: 0 0.5em 1em;
+    overflow: hidden;
+
+    &:hover {
+        .content {
+            opacity: 0.9;
+        }
+        .background-image {
+            filter: saturate(115%);
+            transform: scale(1.4);
+            transition: all 5s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+        }
+    }
+
+    &.slowfood {
+        height: 22em;
+
+        .content {
+            min-width: 22vw;
+        }
+    }
+
+    &:first-child, &:last-child {
+        margin-right: 0.5em;
+    }
+
+    .background-image {
+        background-position: center;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        filter: saturate(45%);
+    }
+
+    .content {
+        height: 4em;
+        padding: 0.5em 2em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: $item-border;
+        background-color: wheat;
+        opacity: 0.7;
+        position: absolute;
+        min-width: 15vw;
+
+        .title, .subtitle {
+            margin: 0.1em 0;
+        }
+
+        .title {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: bold;
+            font-size: 1.8em;
+            color: darkolivegreen;
+            text-transform: capitalize;
+        }
+
+        .subtitle {
+            font-family: 'Sacramento', cursive;
+            font-size: 1.5em;
+        }
+    }
+}
