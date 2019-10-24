@@ -1,0 +1,23 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-image: url('https://pixabay.com/get/51e3d4414c57b108f5d08460825668204022dfe05450784a772f7dd5/hands-731265_1280.jpg');
+  background-attachment: scroll;
+  background-position: center;
+  background-size: cover;
+  display: block;
+  width: 100%;
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
