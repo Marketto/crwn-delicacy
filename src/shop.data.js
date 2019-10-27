@@ -30,10 +30,17 @@ export default [
             },
             {
                 id: 4,
-                slug: 'diaries-chopping-board',
-                name: "Diaries mix",
+                slug: 'cheese-chopping-board',
+                name: "Cheese mix",
                 price: 8,
                 imageUrl: "https://cdn.pixabay.com/photo/2016/04/11/19/16/cheese-platter-1322738_960_720.jpg",
+            },
+            {
+                id: 5,
+                slug: 'bruschetta',
+                name: "Brushetta",
+                price: 3.5,
+                imageUrl: "https://cdn.pixabay.com/photo/2018/04/26/16/57/bruschetta-3352415_960_720.jpg",
             }
         ]
     },
@@ -89,6 +96,13 @@ export default [
                 name: "Olives and tomatoes",
                 price: 4,
                 imageUrl: "https://cdn.pixabay.com/photo/2018/10/24/23/00/focaccia-3771454_960_720.jpg"
+            },
+            {
+                id: 3,
+                slug: "naan",
+                name: "Naan bread",
+                price: 2,
+                imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCja22ogcXTf9Xso24_4zOYr2yutdGB6-wqiwVuR_eXGOSdwQ&s"
             }
         ]
     },
@@ -113,6 +127,13 @@ export default [
                 name: "Spaghetti noodles with carbonara sauce",
                 price: 7,
                 imageUrl: "https://live.staticflickr.com/4239/35645484962_2ca21d0206_b.jpg"
+            },
+            {
+                id: 3,
+                slug: "dumplings",
+                name: "Dumplings with tomato sauce",
+                price: 6.5,
+                imageUrl: "https://storage.needpix.com/rsynced_images/gnocchi-493522_1280.jpg"
             }
         ]
     },

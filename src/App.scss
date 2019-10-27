@@ -1,9 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand:600|Sacramento&display=swap');
 .app {
-    padding: 1em 2em;
+    padding: 1em 3em;
 
     a {
         text-decoration: none;
         color: black;
+    }
+
+    * {
+        box-sizing: border-box;
     }
 }
