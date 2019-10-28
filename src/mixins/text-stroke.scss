@@ -1,0 +1,37 @@
+@mixin text-stroke($width, $strokeColor, $fillColor: none) {
+  @if $fillColor {
+    color: $fillColor;
+  }
+  
+  @supports 
+    (-webkit-text-stroke-color: $strokeColor)
+    or
+    (-moz-text-stroke-color: $strokeColor)
+    or
+    (-o-text-stroke-color: $strokeColor)
+    or
+    (-ms-text-stroke-color: $strokeColor)
+  {
+    paint-order: stroke fill;
+
+    @if $fillColor {
+      text-fill-color: $fillColor;
+      -ms-text-fill-color: $fillColor;
+      -o-text-fill-color: $fillColor;
+      -moz-text-fill-color: $fillColor;
+      -webkit-text-fill-color: $fillColor;
+    }
+
+    text-stroke-color: $strokeColor;
+    -ms-text-stroke-color: $strokeColor;
+    -o-text-stroke-color: $strokeColor;
+    -moz-text-stroke-color: $strokeColor;
+    -webkit-text-stroke-color: $strokeColor;
+    
+    text-stroke-width: $width;
+    -ms-text-stroke-width: $width;
+    -o-text-stroke-width: $width;
+    -moz-text-stroke-width: $width;
+    -webkit-text-stroke-width: $width;
+  }
+}
