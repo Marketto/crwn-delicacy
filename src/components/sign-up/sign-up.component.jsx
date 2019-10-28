@@ -11,11 +11,11 @@ class SignUp extends React.Component {
     constructor() {
         super();
 
-        this.resetFormState();
+        this.state = this.resetFormState;
     }
 
-    resetFormState = () => {
-        this.state= {
+    get resetFormState() {
+        return {
             displayName: '',
             email: '',
             password: '',
@@ -37,7 +37,7 @@ class SignUp extends React.Component {
 
             await createUserProfileDocument(user, { displayName });
 
-            this.resetFormState();
+            this.setState(this.resetFormState);
         } catch(error) {
             console.error(error);
         }

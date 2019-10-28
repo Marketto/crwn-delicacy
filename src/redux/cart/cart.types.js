@@ -1,1 +1,2 @@
 export const TOGGLE_CART_HIDDEN = 'TOGGLE_CART_HIDDEN';
+export const UPDATE_ITEM = 'UPDATE_ITEM';
