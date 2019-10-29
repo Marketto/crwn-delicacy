@@ -1,4 +1,5 @@
 import { TOGGLE_CART_HIDDEN, SET_CART_HIDDEN, UPDATE_ITEM } from './cart.types';
+import { updateCart } from './cart.utils';
 
 const INITIAL_STATE = {
     hidden: true,
@@ -18,21 +19,9 @@ export default (state = INITIAL_STATE, { type, payload } = {}) => {
                 hidden: !state.hidden
             };
         case UPDATE_ITEM:
-            const cartItems = [...state.cartItems];
-            const targetItem = cartItems.find(({ id }) => id === payload.id);
-            if (targetItem) {
-                targetItem.quantity += payload.quantity;
-                if (targetItem.quantity <= 0) {
-                    cartItems.splice(cartItems.indexOf(targetItem), 1);
-                } else {
-                    cartItems.splice(cartItems.indexOf(targetItem), 1, {...targetItem});
-                }
-            } else if (payload.quantity > 0) {
-                cartItems.push(payload);
-            }
             return {
                 ...state,
-                cartItems
+                cartItems: updateCart(state.cartItems, payload)
             };
         default:
             return state;
