@@ -1,4 +1,4 @@
-import { TOGGLE_CART_HIDDEN, UPDATE_ITEM } from './cart.types';
+import { TOGGLE_CART_HIDDEN, SET_CART_HIDDEN, UPDATE_ITEM } from './cart.types';
 
 const INITIAL_STATE = {
     hidden: true,
@@ -7,6 +7,11 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, { type, payload } = {}) => {
     switch (type) {
+        case SET_CART_HIDDEN:
+            return {
+                ...state,
+                hidden: payload
+            };
         case TOGGLE_CART_HIDDEN:
             return {
                 ...state,
@@ -19,6 +24,8 @@ export default (state = INITIAL_STATE, { type, payload } = {}) => {
                 targetItem.quantity += payload.quantity;
                 if (targetItem.quantity <= 0) {
                     cartItems.splice(cartItems.indexOf(targetItem), 1);
+                } else {
+                    cartItems.splice(cartItems.indexOf(targetItem), 1, {...targetItem});
                 }
             } else if (payload.quantity > 0) {
                 cartItems.push(payload);

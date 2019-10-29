@@ -5,14 +5,18 @@ import { createStructuredSelector } from 'reselect';
 
 import './App.scss';
 
+import Header from './components/header/header.component';
+
 import HomePage from './pages/homepage/homepage.component';
 import ShopPage from './pages/shoppage/shoppage.component';
 import SignInPage from './pages/signinpage/signinpage.component';
-import Header from './components/header/header.component';
+import CheckoutPage from './pages/checkout/checkout.component';
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
+
 import { setCurrentUser } from './redux/user/user.actions'
 import { selectCurrentUser } from './redux/user/user.selector';
+import { selectCartItemsCount } from './redux/cart/cart.selectors';
 
 
 class App extends React.Component {
@@ -44,7 +48,14 @@ class App extends React.Component {
     if (this.props.currentUser) {
       return (<Redirect to='/' />);
     }
-    return (<SignInPage />)
+    return (<SignInPage />);
+  }
+
+  checkoutRender = () => {
+    if (this.props.cartItemsCount) {
+      return (<CheckoutPage />);
+    }
+    return (<Redirect to='/shop' />);
   }
 
   render() {
@@ -52,9 +63,10 @@ class App extends React.Component {
       <div className="app">
         <Header />
         <Switch>
-          <Route exact path='/' component={HomePage} />
-          <Route path='/shop' component={ShopPage} />
-          <Route exact path='/sign-in' render={ this.signInRender }/>
+          <Route exact path='/' component={ HomePage } />
+          <Route path='/shop' component={ ShopPage } />
+          <Route exact path='/checkout' render={ this.checkoutRender } />
+          <Route exact path='/sign-in' render={ this.signInRender } />
         </Switch>
       </div>
     );
@@ -67,8 +79,9 @@ class App extends React.Component {
   }
 
   static mapStateToProps = createStructuredSelector({
-      currentUser: selectCurrentUser
-    });
+    currentUser: selectCurrentUser,
+    cartItemsCount: selectCartItemsCount
+  });
 }
 
 export default connect(

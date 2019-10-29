@@ -19,6 +19,18 @@
         overflow-x: none;
     }
 
+    .empty-message {
+        $font-size: 2.4em;
+        display: block;
+        padding: 1em;
+        font-size: $font-size;
+        line-height: $font-size * 0.55;
+        text-align: center;
+        margin: auto;
+        font-family: 'Sacramento', cursive;
+        color: darkred;
+    }
+
     button {
         margin-top: auto;
     }
