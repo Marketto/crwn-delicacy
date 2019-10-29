@@ -30,20 +30,6 @@
         margin: auto;
         top: 0;
         bottom: 0;
-
-        &.circle-plus {
-            $size: 4em;
-            border-radius: 100%;
-            min-width: initial;
-            width: $size * 1.5;
-            height: $size * 1.5;
-            &:after { 
-                content: '\2295';
-                font-size: $size;
-                line-height: 1em;
-                margin: -0.15em 0 0 0;
-            }
-        }
     }
 
     .collection-footer {

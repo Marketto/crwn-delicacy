@@ -6,21 +6,26 @@ import { updateItem } from '../../redux/cart/cart.actions';
 
 import './collection-item.style.scss';
 
-const CollectionItem = ({ item, addItem }) => (
-    <div className='collection-item'>
-        <div
-            className='image'
-            style={{
-                backgroundImage: `url(${item.imageUrl})`
-            }}
-        />
-        <div className='collection-footer'>
-            <span className='name'>{item.name}</span>
-            <span className='price'>{item.price.toFixed(2)}</span>
+const CollectionItem = ({ item, addItem }) => {
+    const { name, price, imageUrl } = item;
+    return (
+        <div className='collection-item'>
+            <div
+                className='image'
+                style={{
+                    backgroundImage: `url(${ imageUrl })`
+                }}
+            />
+            <div className='collection-footer'>
+                <span className='name'>{ name }</span>
+                <span className='price'>{ price.toFixed(2) }</span>
+            </div>
+            <CustomButton className='inverted' onClick={ () => addItem(item) }>
+                Order
+            </CustomButton>
         </div>
-        <CustomButton className='inverted circle-plus' onClick={ addItem(item) }></CustomButton>
-    </div>
-);
+    );
+};
 
 const mapDispatchToProps = dispatch => ({
     addItem: item => dispatch(updateItem(item))
