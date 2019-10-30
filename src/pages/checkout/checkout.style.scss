@@ -1,5 +1,6 @@
 .checkout-page {
     $sectionPadding: 1em;
+    $border-radius: 1em;
     width: 55%;
     min-height: 90vh;
     display: flex;
@@ -46,6 +47,7 @@
     .checkout-header {
         border-bottom: 1px solid white;
         text-transform: uppercase;
+        border-radius: $border-radius $border-radius 0 0;
     }
 
     .checkout-body {
@@ -80,6 +82,7 @@
         width: 100%;
         padding: $sectionPadding;
         border-top: 1px solid white;
+        border-radius: 0 0 $border-radius $border-radius;
 
         .total {
             display: flex;

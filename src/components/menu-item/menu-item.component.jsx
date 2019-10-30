@@ -5,7 +5,7 @@ import './menu-item.style.scss';
 
 // history injected by withRouter
 const MenuItem = ({ slug, title, subtitle, type, imageUrl, history, match }) => (
-    <div className={`menu-item ${type}`} onClick={ () => history.push(`${match.url}${slug}`)}>
+    <div className={`menu-item ${type}`} onClick={ () => history.push(`${match.url}shop/${slug}`)}>
         <div className="background-image" style={{
             backgroundImage: `url(${imageUrl})`
         }}></div>

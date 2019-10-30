@@ -9,7 +9,7 @@ import CartItem from '../cart-item/cart-item.component';
 import { selectCartItems } from '../../redux/cart/cart.selectors';
 import { setCartHidden } from '../../redux/cart/cart.actions';
 
-import './cart-dropdown.styles.scss';
+import './cart-dropdown.style.scss';
 
 const CartDropdown = ({ cartItems, history, dispatch }) => {
     if (cartItems.length) {
@@ -23,7 +23,7 @@ const CartDropdown = ({ cartItems, history, dispatch }) => {
                     }
                 </div>
                 <CustomButton onClick={ () => {
-                    history.push('./checkout');
+                    history.push('/checkout');
                     dispatch(setCartHidden());
                 }}>Checkout</CustomButton>
             </div>

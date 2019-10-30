@@ -1,7 +1,5 @@
-export default [
-    {
-        id: 1,
-        slug: 'appetizers',
+export default {
+    appetizers: {
         title: "Appetizers",
         subtitle: "A rainbow of taste",
         type: 'appetizer',
@@ -44,9 +42,7 @@ export default [
             }
         ]
     },
-    {
-        id: 2,
-        slug: 'buns',
+    buns: {
         title: "Buns",
         subtitle: "Tradition and memories",
         type: 'fastfood',
@@ -72,12 +68,24 @@ export default [
                 name: "Bun with tuna and salad",
                 price: 3.5,
                 imageUrl: "https://cdn.pixabay.com/photo/2016/08/09/11/24/sandwich-1580348_960_720.jpg"
+            },
+            {
+                id: 204,
+                slug: "bun-mortadella-mozzarella",
+                name: "Bun with mortadella and mozzarella",
+                price: 3.5,
+                imageUrl: "https://cdn.pixabay.com/photo/2017/07/19/20/49/mortadella-2520335_960_720.jpg"
+            },
+            {
+                id: 205,
+                slug: "bun-raw-ham-cheese",
+                name: "Bun with raw ham and cheese",
+                price: 4,
+                imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/%22_15_-_ITALY_-_sandwich_with_Prosciutto_Crudo_PARMA_32_mesi_%2832_months%29_and_FIORE_Sardo_DOP_cheese.jpg/1280px-%22_15_-_ITALY_-_sandwich_with_Prosciutto_Crudo_PARMA_32_mesi_%2832_months%29_and_FIORE_Sardo_DOP_cheese.jpg"
             }
         ]
     },
-    {
-        id: 3,
-        slug: 'flat-bread',
+    'flat-bread': {
         title: "Flat Bread",
         subtitle: "The strength of passion",
         type: 'fastfood',
@@ -106,9 +114,7 @@ export default [
             }
         ]
     },
-    {
-        id: 4,
-        slug: 'macaroni',
+    macaroni: {
         title: "Macaroni",
         subtitle: "Home taste",
         type: 'slowfood',
@@ -137,9 +143,7 @@ export default [
             }
         ]
     },
-    {
-        id: 5,
-        slug: 'pizza',
+    pizza: {
         title: "Pizza",
         subtitle: "The immortal",
         type: 'slowfood',
@@ -168,4 +172,4 @@ export default [
             }
         ]
     },
-];
+};
