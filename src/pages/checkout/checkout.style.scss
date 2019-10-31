@@ -77,8 +77,8 @@
 
     .checkout-footer {
         display: flex;
-        justify-content: flex-end;
-        align-items: baseline;
+        justify-content: space-between;
+        align-items: center;
         width: 100%;
         padding: $sectionPadding;
         border-top: 1px solid white;
@@ -97,6 +97,23 @@
                 font-size: 2.2em;
                 font-weight: bold;
             }
+        }
+    }
+
+    .test-warning {
+        background-color: rgba(0,0,0,0.9);
+        border-radius: $border-radius;
+        color: darkred;
+        font-weight: bold;
+        text-align: center;
+        padding: 1em 2em;
+        margin-top: 40vh;
+        font-size: 2em;
+        line-height: 1.6em;
+
+        .exp-cvc {
+            display: flex;
+            justify-content: space-between;
         }
     }
 }
