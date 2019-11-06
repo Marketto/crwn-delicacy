@@ -1,9 +1,9 @@
 import React from 'react';
 
-import './custom-button.style.scss';
+import { CustomButtonContainer } from './custom-button.style';
 
 export default ({ children, className, ...otherProps }) => (
-    <button className={`custom-button ${className}`} {...otherProps}>
+    <CustomButtonContainer className={ className } { ...otherProps }>
         {children}
-    </button>
+    </CustomButtonContainer>
 );

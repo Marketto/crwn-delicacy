@@ -3,7 +3,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import './App.scss';
+import { AppContainer } from './App.style';
 
 import Header from './components/header/header.component';
 
@@ -60,7 +60,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="app">
+      <AppContainer>
         <Header />
         <Switch>
           <Route exact path='/' component={ HomePage } />
@@ -68,7 +68,7 @@ class App extends React.Component {
           <Route exact path='/checkout' render={ this.checkoutRender } />
           <Route exact path='/sign-in' render={ this.signInRender } />
         </Switch>
-      </div>
+      </AppContainer>
     );
   }
 

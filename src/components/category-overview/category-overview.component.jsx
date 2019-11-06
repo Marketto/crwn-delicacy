@@ -6,15 +6,15 @@ import CategoryPreview from '../category-preview/category-preview.component';
 
 import { selectCatalogProducts } from '../../redux/catalog/catalog.selectors';
 
-import './category-overview.style.scss';
+import { CategoryOverviewContainer } from './category-overview.style';
 
 const CategoryOverview = ({ catalog }) => (
-    <div className='category-overview'>
+    <CategoryOverviewContainer>
         {
             catalog
                 .map(({ id, ...otherCategoryProps}) => <CategoryPreview key={ id } { ...otherCategoryProps }></CategoryPreview>)
         }
-    </div>
+    </CategoryOverviewContainer>
 );
 
 const mapStateToProps = createStructuredSelector({

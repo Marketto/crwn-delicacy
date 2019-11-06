@@ -6,17 +6,17 @@ import { selectCatalogCategory } from '../../redux/catalog/catalog.selectors';
 
 import CategoryItem from '../../components/category-item/category-item.component';
 
-import './category.style.scss'
+import { CategoryPageContainer, Title, ItemsContainer } from './category.style'
 
 const CategoryPage = ({ category: { title, items } }) => (
-    <div className='category-page'>
-        <h2 className='title'>{ title }</h2>
-        <div className='items'>
+    <CategoryPageContainer>
+        <Title>{ title }</Title>
+        <ItemsContainer>
             {
                 items.map((item) => <CategoryItem key={ item.id } item={ item }/>)
             }
-        </div>
-    </div>
+        </ItemsContainer>
+    </CategoryPageContainer>
 );
 
 const mapStateToParams = ( state, { match: { params: { categorySlug } } } ) => ({

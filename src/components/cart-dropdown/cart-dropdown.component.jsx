@@ -9,30 +9,30 @@ import CartItem from '../cart-item/cart-item.component';
 import { selectCartItems } from '../../redux/cart/cart.selectors';
 import { setCartHidden } from '../../redux/cart/cart.actions';
 
-import './cart-dropdown.style.scss';
+import { CartDropdownContainer, CartItemsContainer, EmptyMessageContainer } from './cart-dropdown.style';
 
 const CartDropdown = ({ cartItems, history, dispatch }) => {
     if (cartItems.length) {
         return (
-            <div className='cart-dropdown'>
-                <div className='cart-items'>
+            <CartDropdownContainer>
+                <CartItemsContainer>
                     {
                         cartItems.map(cartItem => (
                             <CartItem key={ cartItem.id } item={ cartItem } />
                         ))
                     }
-                </div>
+                </CartItemsContainer>
                 <CustomButton onClick={ () => {
                     history.push('/checkout');
                     dispatch(setCartHidden());
                 }}>Checkout</CustomButton>
-            </div>
+            </CartDropdownContainer>
         );
     }
     return (
-        <div className='cart-dropdown'>
-            <span className='empty-message'>Nothing in your order yet!</span>
-        </div>
+        <CartDropdownContainer>
+            <EmptyMessageContainer>Nothing in your order yet!</EmptyMessageContainer>
+        </CartDropdownContainer>
     );
 };
 

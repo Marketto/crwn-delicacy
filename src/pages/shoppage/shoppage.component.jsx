@@ -4,13 +4,13 @@ import { Route } from 'react-router-dom';
 import CategoryPage from '../category/category.component';
 import CategorysOverview from '../../components/category-overview/category-overview.component';
 
-import './shoppage.style.scss';
+import { ShopPageContainer } from './shoppage.style';
 
 const ShopPage = ({ match }) => (
-    <div className='shop-page'>
+    <ShopPageContainer>
         <Route exact path={`${match.path}`} component={CategorysOverview} />
         <Route path={`${match.path}/:categorySlug`} component={CategoryPage} />
-    </div>
+    </ShopPageContainer>
 );
 
 export default ShopPage;

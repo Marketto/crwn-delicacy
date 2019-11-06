@@ -1,20 +1,24 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-import './category-preview.style.scss';
-
 import CategoryItem from '../category-item/category-item.component';
 
+import {
+    CategoryPreviewContainer,
+    TitleContainer,
+    PreviewContainer
+} from './category-preview.style';
+
 const CategoryPreview = ({ title, slug, items, history, match }) => (
-    <div className='category-preview'>
-        <h1 className='title' onClick={ () => history.push(`${match.url}/${slug}`) }>{title}</h1>
-        <div className='preview'>
+    <CategoryPreviewContainer>
+        <TitleContainer onClick={ () => history.push(`${match.url}/${slug}`) }>{title}</TitleContainer>
+        <PreviewContainer>
             {
                 items
                     .map((item) => <CategoryItem key={ item.id } item={ item }></CategoryItem>)
             }
-        </div>
-    </div>
+        </PreviewContainer>
+    </CategoryPreviewContainer>
 );
 
 export default withRouter(CategoryPreview);

@@ -1,4 +1,8 @@
-.custom-button {
+import styled from 'styled-components';
+
+const googleButtonMainColor = '#4285f4';
+
+export const CustomButtonContainer = styled.button`
     min-width: 10em;
     width: auto;
     height: 4em;
@@ -23,18 +27,17 @@
     }
 
     &.google-sign-in {
-        $main-color: #4285f4;
-        background-color: $main-color;
+        background-color: ${googleButtonMainColor};
         color: white;
 
         &:hover {
-            color: $main-color;
+            color: ${googleButtonMainColor};
             background-color: white;
-            border: 1px solid $main-color;
+            border: 1px solid ${googleButtonMainColor};
         }
     }
 
     &.inverted {
         filter: invert(100%);
     }
-}
+`;

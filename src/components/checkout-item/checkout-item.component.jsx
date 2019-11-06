@@ -3,26 +3,38 @@ import { connect } from 'react-redux';
 
 import { updateItem } from '../../redux/cart/cart.actions';
 
-import './checkout-item.style.scss';
+import {
+    CheckoutItemContainer,
+    ImageContainer,
+    ImageContent,
+    NameBlockLabel,
+    QuantityBlockContainer,
+    PriceBlockLabel,
+    SmallBlockContainer,
+    DecreaseButton,
+    QuantityLabel,
+    IncreaseButton,
+    RemoveButton
+} from './checkout-item.style';
 
 const CheckoutItem = ({ cartItem, addItem, removeItem, clearItem }) => {
     const { name, imageUrl, price, quantity } = cartItem;
     return (
-        <div className='checkout-item'>
-            <div className='checkout-block image-container'>
-                <img alt='item' src={imageUrl}/>
-            </div>
-            <span className='checkout-block name'>{ name }</span>
-            <div className='checkout-block quantity'>
-                <span className='decrease' onClick={ () => removeItem(cartItem) }>&#10094;</span>
-                <span>{ quantity }</span>
-                <span className='increase' onClick={ () => addItem(cartItem) }>&#10095;</span>
-            </div>
-            <span className='checkout-block price'>{ price.toFixed(2) } €</span>
-            <div className='checkout-block small-block'>
-                <span className='remove' onClick={ () => clearItem(cartItem) }>&#10005;</span>
-            </div>
-        </div>
+        <CheckoutItemContainer>
+            <ImageContainer>
+                <ImageContent alt='item' src={imageUrl}/>
+            </ImageContainer>
+            <NameBlockLabel>{ name }</NameBlockLabel>
+            <QuantityBlockContainer>
+                <DecreaseButton onClick={ () => removeItem(cartItem) }>&#10094;</DecreaseButton>
+                <QuantityLabel>{ quantity }</QuantityLabel>
+                <IncreaseButton onClick={ () => addItem(cartItem) }>&#10095;</IncreaseButton>
+            </QuantityBlockContainer>
+            <PriceBlockLabel>{ price.toFixed(2) } €</PriceBlockLabel>
+            <SmallBlockContainer>
+                <RemoveButton onClick={ () => clearItem(cartItem) }>&#10005;</RemoveButton>
+            </SmallBlockContainer>
+        </CheckoutItemContainer>
     )
 };
 
