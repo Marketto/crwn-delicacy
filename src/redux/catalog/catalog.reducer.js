@@ -1,7 +1,11 @@
-import CATALOG from './catalog.data';
+import { SET_CATALOG } from './catalog.types';
 
-export default ( state = CATALOG, { type } ) => {
+const INITIAL_STATE = {};
+
+export default ( state = INITIAL_STATE, { type, payload } = {} ) => {
     switch(type) {
+        case SET_CATALOG:
+            return payload;
         default:
             return state;
     }

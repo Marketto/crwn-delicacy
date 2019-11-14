@@ -1,10 +1,18 @@
 import { createSelector } from 'reselect';
+import { selectAllProducts } from '../catalog/catalog.selectors';
 
 const selectCart = state => state.cart;
 
 export const selectCartItems = createSelector(
-    [selectCart],
-    cart => cart.cartItems
+    [selectCart, selectAllProducts],
+    (cart, products) => {
+        const cartIds = cart.cartItems.map(({ id }) => id);
+        const cartProducts = products.filter(({ id }) => cartIds.includes(id));
+        return cartProducts.map(product => ({
+            ...product,
+            ...cart.cartItems[cartIds.indexOf(product.id)]
+        }));
+    }
 );
 
 export const selectCartHidden = createSelector(
@@ -14,7 +22,7 @@ export const selectCartHidden = createSelector(
 
 export const selectCartItemsCount = createSelector(
     [selectCartItems],
-    cartItems => cartItems.reduce((count, { quantity }) => count + quantity, 0) 
+    cartItems => (cartItems || []).reduce((count, { quantity }) => count + quantity, 0) 
 );
 
 export const selectCartTotalAmount = createSelector(

@@ -16,7 +16,7 @@ import {
     TestWarningContainer,
     ExpCvcContainer,
     Total
-} from './checkout.style';
+} from './checkout-page.style';
 
 const CheckoutPage = ({ cartItems, cartTotalAmount }) => (
     <CheckoutPageContainer>

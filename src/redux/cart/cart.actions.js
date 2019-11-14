@@ -12,7 +12,7 @@ export const setCartHidden = (hide = true) => ({
 export const updateItem = (item, quantity = 1) => ({
     type: UPDATE_ITEM,
     payload: {
-        ...item,
+        id: item.id,
         quantity
     }
 });

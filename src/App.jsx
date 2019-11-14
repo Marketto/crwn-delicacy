@@ -7,25 +7,27 @@ import { AppContainer } from './App.style';
 
 import Header from './components/header/header.component';
 
-import HomePage from './pages/homepage/homepage.component';
-import ShopPage from './pages/shoppage/shoppage.component';
-import SignInPage from './pages/signinpage/signinpage.component';
-import CheckoutPage from './pages/checkout/checkout.component';
+import HomePage from './pages/home-page/home-page.component';
+import ShopPage from './pages/shop-page/shop-page.component';
+import SignInPage from './pages/signin-page/signin-page.component';
+import CheckoutPage from './pages/checkout-page/checkout-page.component';
 
-import { auth, createUserProfileDocument } from './firebase/firebase.utils';
+import { auth, createUserProfileDocument, getRemoteCatalog } from './firebase/firebase.utils';
 
 import { setCurrentUser } from './redux/user/user.actions'
 import { selectCurrentUser } from './redux/user/user.selector';
 import { selectCartItemsCount } from './redux/cart/cart.selectors';
 
+import { setCatalog } from './redux/catalog/catalog.actions';
 
 class App extends React.Component {
   unsubscribeFromAuth = null
+  unsubscribeFromCatalog = null
 
   componentDidMount() {
-    const { setCurrentUser } = this.props;
+    const { setCurrentUser, setCatalog } = this.props;
 
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
@@ -38,10 +40,15 @@ class App extends React.Component {
       }
       setCurrentUser(userAuth);
     });
+
+
+    this.unsubscribeFromCatalog = getRemoteCatalog()
+      .then(snapShot => setCatalog(snapShot));
   }
 
   componentWillUnmount() {
     this.unsubscribeFromAuth();
+    this.unsubscribeFromCatalog();
   }
 
   signInRender = () => {
@@ -74,7 +81,8 @@ class App extends React.Component {
 
   static mapDispatchToProps(dispatch) {
     return {
-      setCurrentUser: user => dispatch(setCurrentUser(user))
+      setCurrentUser: user => dispatch(setCurrentUser(user)),
+      setCatalog: catalog => dispatch(setCatalog(catalog))
     };
   }
 

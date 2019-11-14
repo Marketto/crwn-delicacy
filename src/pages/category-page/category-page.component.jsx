@@ -6,7 +6,7 @@ import { selectCatalogCategory } from '../../redux/catalog/catalog.selectors';
 
 import CategoryItem from '../../components/category-item/category-item.component';
 
-import { CategoryPageContainer, Title, ItemsContainer } from './category.style'
+import { CategoryPageContainer, Title, ItemsContainer } from './category-page.style'
 
 const CategoryPage = ({ category: { title, items } }) => (
     <CategoryPageContainer>
